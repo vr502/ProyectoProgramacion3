@@ -20,25 +20,25 @@
         <div class="flex-container">
             <form class="user-form" id="registerForm">
                 <label for="firstname">Nombres</label>
-                <input type="text" id="firstname" placeholder="Joel">
+                <input type="text" id="firstname" placeholder="Joel" required>
 
                 <label for="lastname">Apellidos</label>
-                <input type="text" id="lastname" placeholder="Lopez">
+                <input type="text" id="lastname" placeholder="Lopez" required>
 
                 <label for="email">Correo Electronico</label>
-                <input type="email" id="email" placeholder="example@example.com">
+                <input type="email" id="email" placeholder="example@example.com" required>
 
                 <label for="phone">Teléfono</label>
-                <input type="tel" id="phone" placeholder="1234567890">
+                <input type="tel" id="phone" placeholder="1234567890" required>
 
                 <label for="password">Password</label>
                 <div class="password-container">
-                    <input type="password" id="password">
+                    <input type="password" id="password" required>
                 </div>
 
                 <label for="confirm-password">Confirmar Password</label>
                 <div class="password-container">
-                    <input type="password" id="confirm-password">
+                    <input type="password" id="confirm-password" required>
                 </div>
 
                 <button type="button" id="togglePasswords">Mostrar</button>
@@ -98,6 +98,7 @@
     </script>
     <script src="js/usuarios.js"></script>
     <script src="js/buscar-usuario.js"></script>
+    <script src="js/registerUsuario.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.js"></script>
 </body>
 </html>
