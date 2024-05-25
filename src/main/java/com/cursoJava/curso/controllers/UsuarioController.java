@@ -39,8 +39,8 @@ public class UsuarioController {
 
     @RequestMapping(value = "api/usuario/{id}")
     //@RequestHeader(value="Authorization") String token
-    public Usuario buscarUsuario(@PathVariable long id) {
-        //if(!validarToken(token)) {return null;}
+    public Usuario buscarUsuario(@PathVariable long id, @RequestHeader(value="Authorization") String token) {
+        if(!validarToken(token)) {return null;}
         return usuarioDao.buscarUsuario(id);
     }
 
