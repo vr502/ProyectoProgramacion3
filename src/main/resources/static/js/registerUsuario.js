@@ -1,10 +1,11 @@
 document.getElementById('registerForm').addEventListener('submit', async function(event) {
     event.preventDefault();
+
     let datos = {};
-    datos.nombre = document.getElementById("firstname").value;
-    datos.apellido = document.getElementById("lastname").value;
-    datos.email = document.getElementById("registerEmail").value;
-    datos.telefono = document.getElementById("phone").value;
+    datos.Nombres = document.getElementById("firstname").value;
+    datos.Apellidos = document.getElementById("lastname").value;
+    datos.Email = document.getElementById("registerEmail").value;
+    datos.phone = document.getElementById("phone").value;
     datos.password = document.getElementById("registerPassword").value;
     let confirmPassword = document.getElementById("confirmPassword").value;
 
@@ -12,8 +13,9 @@ document.getElementById('registerForm').addEventListener('submit', async functio
         alert('Las contraseñas no coinciden');
         return;
     }
+
     // Simulación de registro (en un escenario real, realizar la verificación del lado del servidor)
-    await fetch('api/registro', {
+     await fetch('api/registro', {
         method: 'POST',
         headers: {
             'Accept': 'application/json',
@@ -24,21 +26,26 @@ document.getElementById('registerForm').addEventListener('submit', async functio
 
     alert("Usuario creado exitosamente");
     window.location.href = 'login.html'
-})
+});
 
-document.getElementById('togglePasswords').addEventListener('click', function() {
+document.getElementById('toggleRegisterPassword').addEventListener('click', function() {
     const passwordField = document.getElementById('registerPassword');
-    const confirmPasswordField = document.getElementById('confirmPassword');
-    if (passwordField.type === 'password' && confirmPasswordField.type === 'password') {
+    if (passwordField.type === 'password') {
         passwordField.type = 'text';
-        confirmPasswordField.type = 'text';
-        this.style.backgroundColor="#c24b4b";
-        this.textContent = 'Ocultar Contraseña';
+        this.textContent = 'Ocultar';
     } else {
         passwordField.type = 'password';
-        confirmPasswordField.type = 'password';
-        this.style.backgroundColor="#4CAF50";
-        this.textContent = 'Mostrar Contraseña';
+        this.textContent = 'Mostrar';
     }
 });
 
+document.getElementById('toggleConfirmPassword').addEventListener('click', function() {
+    const confirmPasswordField = document.getElementById('confirmPassword');
+    if (confirmPasswordField.type === 'password') {
+        confirmPasswordField.type = 'text';
+        this.textContent = 'Ocultar';
+    } else {
+        confirmPasswordField.type = 'password';
+        this.textContent = 'Mostrar';
+    }
+});

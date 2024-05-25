@@ -18,7 +18,7 @@
     <div class="container">
         <h1>USUARIOS</h1>
         <div class="flex-container">
-            <form class="user-form">
+            <form class="user-form" id="registerForm">
                 <label for="firstname">Nombres</label>
                 <input type="text" id="firstname" placeholder="Joel">
 
@@ -49,8 +49,8 @@
             <div class="table-container">
                 <div class="search-container">
                     <input type="text" id="searchId" placeholder="Buscar por ID">
-                    <button type="button" id="searchButton">Buscar</button>
-                    <button type="button" id="showAllButton">Mostrar Todo</button>
+                    <button type="button" id="searchButton" onclick="buscarUsuario()">Buscar</button>
+                    <button type="button" id="showAllButton" onclick="cargarUsuarios()">Mostrar Todo</button>
                 </div>
                 <table id="userTable">
                     <thead>
@@ -95,33 +95,9 @@
                 this.textContent = 'Mostrar';
             }
         });
-
-        document.getElementById('searchButton').addEventListener('click', function () {
-            const searchId = document.getElementById('searchId').value.toLowerCase();
-            const rows = document.querySelectorAll('#userTable tbody tr');
-            rows.forEach(row => {
-                const idCell = row.querySelector('td:first-child');
-                if (idCell && idCell.textContent.toLowerCase() === searchId) {
-                    row.style.display = '';
-                } else {
-                    row.style.display = 'none';
-                }
-            });
-        });
-
-        document.getElementById('showAllButton').addEventListener('click', function () {
-            const rows = document.querySelectorAll('#userTable tbody tr');
-            rows.forEach(row => {
-                row.style.display = '';
-            });
-        });
-
-        document.getElementById('logoutButton').addEventListener('click', function () {
-            // Lógica para cerrar sesión, redireccionar a la página de inicio de sesión, etc.
-            alert('Sesión cerrada');
-        });
     </script>
     <script src="js/usuarios.js"></script>
+    <script src="js/buscar-usuario.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.js"></script>
 </body>
 </html>

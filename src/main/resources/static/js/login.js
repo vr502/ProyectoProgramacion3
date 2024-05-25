@@ -6,7 +6,7 @@ async function IniciarSession() {
 
     let datos = {};
     datos.email = document.getElementById('txtEmail').value;
-    datos.password = document.getElementById('txtPassword').value;
+    datos.password = document.getElementById('loginPassword').value;
     console.log(datos);
     const request = await fetch('api/login', {
         method: 'POST',
@@ -22,7 +22,11 @@ async function IniciarSession() {
         localStorage.email = datos.email;
         window.location.href = "index.html";
     } else {
-        alert("Email o contraseña incorrectos")
+        Swal.fire({
+            icon: "error",
+            title: "Oops...",
+            text: "¡Usuario/Clave Incorrectos!"
+        });
     }
 
 
@@ -31,9 +35,11 @@ document.getElementById('togglePassword').addEventListener('click', function() {
     const passwordField = document.getElementById('loginPassword');
     if (passwordField.type === 'password') {
         passwordField.type = 'text';
+        this.style.backgroundColor="#c24b4b";
         this.textContent = 'Ocultar';
     } else {
         passwordField.type = 'password';
+        this.style.backgroundColor="#4CAF50";
         this.textContent = 'Mostrar';
     }
 });
