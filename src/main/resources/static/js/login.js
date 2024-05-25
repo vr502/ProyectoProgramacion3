@@ -1,19 +1,32 @@
-document.getElementById('loginForm').addEventListener('submit', function(event) {
-    event.preventDefault();
+// Call the dataTables jQuery plugin
+document.addEventListener("DOMContentLoaded", () => {
+    console.log("Mensaje");
+})
+async function IniciarSession() {
 
-    const email = document.getElementById('loginEmail').value;
-    const password = document.getElementById('loginPassword').value;
-
-    // Simulación de autenticación (en un escenario real, realizar la verificación del lado del servidor)
-    if (email === 'usuario@example.com' && password === 'password123') {
-        // Autenticación exitosa, redirigir a la página principal
-        window.location.href = 'index.html';
+    let datos = {};
+    datos.email = document.getElementById('txtEmail').value;
+    datos.password = document.getElementById('txtPassword').value;
+    console.log(datos);
+    const request = await fetch('api/login', {
+        method: 'POST',
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(datos)
+    });
+    const respuesta = await request.text();
+    if(respuesta != 'FAIL' ){
+        localStorage.token = respuesta;
+        localStorage.email = datos.email;
+        window.location.href = "index.html";
     } else {
-        // Autenticación fallida, mostrar mensaje de error
-        document.getElementById('loginError').textContent = 'Correo electrónico o contraseña incorrectos';
+        alert("Email o contraseña incorrectos")
     }
-});
 
+
+}
 document.getElementById('togglePassword').addEventListener('click', function() {
     const passwordField = document.getElementById('loginPassword');
     if (passwordField.type === 'password') {

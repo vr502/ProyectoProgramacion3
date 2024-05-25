@@ -5,12 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Usuarios</title>
     <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.11.0/dist/sweetalert2.min.css">
 </head>
 <body>
     <header class="header">
         <div class="user-info">
             <img src="img/avatar.jpeg" alt="Avatar" class="avatar">
-            <span class="user-email">usuario@example.com</span>
+            <span class="user-email" id="name-user">usuario@example.com</span>
         </div>
         <button id="logoutButton" class="logout-btn">Cerrar Sesión</button>
     </header>
@@ -57,8 +58,8 @@
                             <th>ID</th>
                             <th>Nombres</th>
                             <th>Apellidos</th>
-                            <th>Email</th>
                             <th>Telefono</th>
+                            <th>Email</th>
                             <th>Acciones</th>
                         </tr>
                     </thead>
@@ -67,35 +68,13 @@
                             <td>1</td>
                             <td>Joel</td>
                             <td>Lopez</td>
-                            <td>ypz@gmail.com</td>
                             <td>123123</td>
+                            <td>ypz@gmail.com</td>
                             <td>
-                                <button class="edit-btn">✏️</button>
                                 <button class="delete-btn">🗑️</button>
                             </td>
                         </tr>
-                        <tr>
-                            <td>2</td>
-                            <td>Santi</td>
-                            <td>Mendoza</td>
-                            <td>ypz@gmail.com</td>
-                            <td>123123</td>
-                            <td>
-                                <button class="edit-btn">✏️</button>
-                                <button class="delete-btn">🗑️</button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>3</td>
-                            <td>Anderson</td>
-                            <td>Mendoza</td>
-                            <td>ypz@gmail.com</td>
-                            <td>123123</td>
-                            <td>
-                                <button class="edit-btn">✏️</button>
-                                <button class="delete-btn">🗑️</button>
-                            </td>
-                        </tr>
+
                     </tbody>
                 </table>
             </div>
@@ -142,5 +121,7 @@
             alert('Sesión cerrada');
         });
     </script>
+    <script src="js/usuarios.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.js"></script>
 </body>
 </html>
