@@ -1,5 +1,10 @@
 document.addEventListener("DOMContentLoaded", () => {
-    cargarUsuarios();
+    if(localStorage.token !== '' && localStorage.email !== ''){
+        cargarUsuarios();
+    } else {
+        window.location.href = "login.html";
+    }
+
 })
 
 function getHeaders() {
@@ -63,3 +68,8 @@ function eliminarUsuario(id) {
      });
  }
 
+ function cerrarCesion(){
+    localStorage.email = '';
+    localStorage.token = '';
+    window.location.href ="login.html"
+ }
